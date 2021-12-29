@@ -87,3 +87,13 @@ button:focus {
 label {
   display: none;
 }
+
+/* Cards */
+.card {
+  background-color: var(--clr-card-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.9rem 2rem;
+  gap: 2rem;
+}
