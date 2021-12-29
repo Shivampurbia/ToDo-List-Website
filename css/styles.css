@@ -111,3 +111,55 @@ header.card h1 {
   font-weight: 700;
   font-size: calc(var(--base-font) * 2);
 }
+
+/* Add Card */
+.add {
+  margin: 4rem 0 2.5rem 0;
+  border-radius: 0.5rem;
+}
+
+/* add some transition for bg */
+.add .cb-container {
+  transition: background 0.3s ease;
+}
+
+.add .cb-container #add-btn {
+  color: var(--clr-gb-2);
+  font-size: var(--base-font);
+  transition: color 0.3s ease;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.add .cb-container:hover {
+  background: var(--clr-blue);
+}
+
+.add .cb-container:active {
+  transform: scale(0.95);
+}
+
+.add .cb-container:hover #add-btn {
+  color: var(--clr-white);
+}
+
+.add .txt-container {
+  flex: 1; /* text input container should stretch to the end */
+}
+
+.add .txt-container .txt-input {
+  width: 100%;
+  padding: 0.7rem 0;
+  color: var(--clr-gb-1);
+}
+
+body.light .add .txt-container .txt-input {
+  font-weight: var(--fw-bold);
+}
+
+.add .txt-container .txt-input::placeholder {
+  color: var(--clr-gb-5);
+  font-weight: var(--fw-normal);
+}
