@@ -66,3 +66,24 @@ body {
   width: min(85%, 54rem);
   margin: auto;
 }
+
+input,
+button {
+  font: inherit;
+  border: 0;
+  background: transparent;
+}
+
+button {
+  display: flex;
+  user-select: none;
+}
+
+input:focus,
+button:focus {
+  outline: 0;
+}
+
+label {
+  display: none;
+}
