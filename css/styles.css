@@ -19,3 +19,18 @@
   --clr-gb-6: hsl(235, 19%, 24%);
   --clr-box-shadow: hsl(0, 0%, 0%, 0.1);
 }
+
+/* CHANGE CUSTOM PROPERTIES WHEN LIGHT THEME */
+
+body.light {
+  --img-bg: url('../assets/images/bg-desktop-light.jpg');
+  --clr-primary: hsl(243, 12%, 30%);
+  --clr-page-bg: hsl(0, 0%, 98%);
+  --clr-card-bg: hsl(0, 0%, 100%);
+  --clr-gb-1: hsl(240, 8%, 24%);
+  --clr-gb-2: hsl(243, 12%, 30%);
+  --clr-gb-3: hsl(252, 6%, 83%);
+  --clr-gb-4: hsl(237, 10%, 64%);
+  --clr-gb-5: hsl(252, 9%, 73%);
+  --clr-gb-6: hsl(252, 21%, 94%);
+}
