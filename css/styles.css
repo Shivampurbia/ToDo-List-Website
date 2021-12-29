@@ -139,6 +139,14 @@ header.card h1 {
   border-radius: inherit;
 }
 
+/* Checked Card Styling */
+.card .cb-container .cb-input:checked + .check {
+  background: url('../assets/images/icon-check.svg'),
+    linear-gradient(45deg, var(--clr-green), var(--clr-pink));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /* Add Card */
 .add {
   margin: 4rem 0 2.5rem 0;
