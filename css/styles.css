@@ -34,3 +34,27 @@ body.light {
   --clr-gb-5: hsl(252, 9%, 73%);
   --clr-gb-6: hsl(252, 21%, 94%);
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  position: relative;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  user-select: none;
+}
