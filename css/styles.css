@@ -267,3 +267,38 @@ body.light .todos {
 body.light .stat {
   box-shadow: 0 1rem 2rem -0.4rem var(--clr-box-shadow);
 }
+
+/* CORNERS */
+
+.stat .corner:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stat .corner button:hover {
+  color: var(--clr-primary);
+}
+
+/* FILTER BUTTONS */
+
+.stat .filter {
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--fw-bold);
+}
+
+.stat .filter *:hover {
+  color: var(--clr-primary);
+}
+
+.stat .filter .on {
+  color: var(--clr-blue);
+}
+
+/* FOOTER */
+
+footer {
+  margin: 4rem 0;
+  text-align: center;
+  color: var(--clr-gb-5);
+}
