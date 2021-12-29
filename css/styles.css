@@ -112,6 +112,33 @@ header.card h1 {
   font-size: calc(var(--base-font) * 2);
 }
 
+/* Checkbox Container and Field */
+.card .cb-container {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.1rem solid var(--clr-gb-5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card .cb-container .cb-input {
+  transform: scale(1.8);
+  opacity: 0;
+}
+
+.card .cb-container .check {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
 /* Add Card */
 .add {
   margin: 4rem 0 2.5rem 0;
@@ -146,7 +173,7 @@ header.card h1 {
 }
 
 .add .txt-container {
-  flex: 1; /* text input container should stretch to the end */
+  flex: 1; /* text input container should stretch to the end    */
 }
 
 .add .txt-container .txt-input {
