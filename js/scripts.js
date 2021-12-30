@@ -99,3 +99,26 @@ function main() {
       removeManyTodo(deleteIndexes);
     });
 }
+
+// to update todo about completion
+function stateTodo(index, completed) {
+  const todos = JSON.parse(localStorage.getItem('todos'));
+  todos[index].isCompleted = completed;
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+// to remove one todo
+function removeTodo(index) {
+  const todos = JSON.parse(localStorage.getItem('todos'));
+  todos.splice(index, 1);
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+// remove many
+function removeManyTodo(indexes) {
+  let todos = JSON.parse(localStorage.getItem('todos'));
+  todos = todos.filter(function (todo, index) {
+    return !indexes.includes(index);
+  });
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
