@@ -78,7 +78,7 @@ body {
   margin-top: 5%;
   display: none;
   justify-content: space-between;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.712);
   width: 100%;
   border-radius: 3rem;
   padding: 2rem;
