@@ -122,3 +122,97 @@ function removeManyTodo(indexes) {
   });
   localStorage.setItem('todos', JSON.stringify(todos));
 }
+
+// to create todos
+function addTodo(todos = JSON.parse(localStorage.getItem('todos'))) {
+  if (!todos) {
+    return null;
+  }
+  const itemsLeft = document.getElementById('items-left');
+  // create cards
+  todos.forEach(function (todo) {
+    const card = document.createElement('li');
+    const cbContainer = document.createElement('div');
+    const cbInput = document.createElement('input');
+    const check = document.createElement('span');
+    const item = document.createElement('p');
+    const button = document.createElement('button');
+    const img = document.createElement('img');
+    // Add classes
+    card.classList.add('card');
+    button.classList.add('clear');
+    cbContainer.classList.add('cb-container');
+    cbInput.classList.add('cb-input');
+    item.classList.add('item');
+    check.classList.add('check');
+    button.classList.add('clear');
+    // Set attributes
+    card.setAttribute('draggable', true);
+    img.setAttribute('src', './assets/images/icon-cross.svg');
+    img.setAttribute('alt', 'Clear it');
+    cbInput.setAttribute('type', 'checkbox');
+    // set todo item for card
+    item.textContent = todo.item;
+    // if completed -> add respective class / attribute
+    if (todo.isCompleted) {
+      card.classList.add('checked');
+      cbInput.setAttribute('checked', 'checked');
+    }
+
+    // Add drag listener to card
+    card.addEventListener('dragstart', function () {
+      this.classList.add('dragging');
+    });
+    card.addEventListener('dragend', function () {
+      this.classList.remove('dragging');
+    });
+
+    // Add click listener to checkbox
+    cbInput.addEventListener('click', function () {
+      const correspondingCard = this.parentElement.parentElement;
+      const checked = this.checked;
+      stateTodo(
+        [...document.querySelectorAll('.todos .card')].indexOf(
+          correspondingCard
+        ),
+        checked
+      );
+      checked
+        ? correspondingCard.classList.add('checked')
+        : correspondingCard.classList.remove('checked');
+      itemsLeft.textContent = document.querySelectorAll(
+        '.todos .card:not(.checked)'
+      ).length;
+    });
+    // Add click listener to clear button
+    button.addEventListener('click', function () {
+      const correspondingCard = this.parentElement;
+      correspondingCard.classList.add('fall');
+      removeTodo(
+        [...document.querySelectorAll('.todos .card')].indexOf(
+          correspondingCard
+        )
+      );
+      correspondingCard.addEventListener('animationend', function () {
+        setTimeout(function () {
+          correspondingCard.remove();
+          itemsLeft.textContent = document.querySelectorAll(
+            '.todos .card:not(.checked)'
+          ).length;
+        }, 100);
+      });
+    });
+    // parent.appendChild(child)
+    button.appendChild(img);
+    cbContainer.appendChild(cbInput);
+    cbContainer.appendChild(check);
+    card.appendChild(cbContainer);
+    card.appendChild(item);
+    card.appendChild(button);
+    document.querySelector('.todos').appendChild(card);
+  });
+  // Update itemsLeft
+  itemsLeft.textContent = document.querySelectorAll(
+    '.todos .card:not(.checked)'
+  ).length;
+}
