@@ -234,7 +234,11 @@ function addTodo(todos = JSON.parse(localStorage.getItem('todos'))) {
         for(let i=0;i<parsedObject.length;i++){
           if(item.textContent === parsedObject[i].item){
             txtInput.value  = item.textContent;
-            document.querySelector('.save-btn').addEventListener("click",()=>{
+
+            document.querySelector('#cancel').addEventListener("click",()=>{
+              updatediv.setAttribute("style","display:none");
+            })
+            document.querySelector('#save--btn').addEventListener("click",()=>{
               parsedObject[i].item = txtInput.value;
               item.textContent = txtInput.value;
 

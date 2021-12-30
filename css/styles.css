@@ -71,8 +71,9 @@ body {
   color: white;
   padding: 1rem;
   border-radius: .5rem;
-  
+  margin-right: 5%;
 }
+
 .update-div{
   margin-top: 5%;
   display: none;
