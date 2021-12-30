@@ -79,4 +79,23 @@ function main() {
       document.querySelector('.todos').className = `todos ${id}`;
     }
   });
+
+  // Clear Completed
+  document
+    .getElementById('clear-completed')
+    .addEventListener('click', function () {
+      deleteIndexes = [];
+      document.querySelectorAll('.card.checked').forEach(function (card) {
+        deleteIndexes.push(
+          [...document.querySelectorAll('.todos .card')].indexOf(card)
+        );
+        card.classList.add('fall');
+        card.addEventListener('animationend', function (e) {
+          setTimeout(function () {
+            card.remove();
+          }, 100);
+        });
+      });
+      removeManyTodo(deleteIndexes);
+    });
 }
