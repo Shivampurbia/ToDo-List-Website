@@ -66,7 +66,22 @@ body {
   width: min(85%, 54rem);
   margin: auto;
 }
-
+.save-btn{
+  background-color: rgba(48, 19, 151, 0.897);
+  color: white;
+  padding: 1rem;
+  border-radius: .5rem;
+  
+}
+.update-div{
+  margin-top: 5%;
+  display: none;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+  border-radius: 3rem;
+  padding: 2rem;
+}
 input,
 button {
   font: inherit;
@@ -78,7 +93,16 @@ button {
   display: flex;
   user-select: none;
 }
-
+.updatebtn{
+opacity: .4;
+width: 2.5rem;
+cursor: pointer;
+opacity: .2;
+}
+.updatebtn:hover{
+  transition: .5s;
+ opacity: 1; 
+}
 input:focus,
 button:focus {
   outline: 0;
@@ -184,17 +208,17 @@ header.card h1 {
   flex: 1; /* text input container should stretch to the end    */
 }
 
-.add .txt-container .txt-input {
+.add .txt-container .txt-input .txtt-input{
   width: 100%;
   padding: 0.7rem 0;
   color: var(--clr-gb-1);
 }
 
-body.light .add .txt-container .txt-input {
+body.light .add .txt-container .txtt-input .txt-input {
   font-weight: var(--fw-bold);
 }
 
-.add .txt-container .txt-input::placeholder {
+.add .txt-container .txt-input .txtt-input::placeholder {
   color: var(--clr-gb-5);
   font-weight: var(--fw-normal);
 }

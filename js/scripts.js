@@ -186,6 +186,7 @@ function addTodo(todos = JSON.parse(localStorage.getItem('todos'))) {
     });
     // Add click listener to clear button
     button.addEventListener('click', function () {
+      
       const correspondingCard = this.parentElement;
       correspondingCard.classList.add('fall');
       removeTodo(
@@ -202,14 +203,54 @@ function addTodo(todos = JSON.parse(localStorage.getItem('todos'))) {
         }, 100);
       });
     });
+    let updatebtn = document.createElement('img');
+    updatebtn.src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/sync-3509357-2943486.png";
+    updatebtn.classList.add("updatebtn");
     // parent.appendChild(child)
+    
     button.appendChild(img);
     cbContainer.appendChild(cbInput);
     cbContainer.appendChild(check);
     card.appendChild(cbContainer);
     card.appendChild(item);
+    card.appendChild(updatebtn);
     card.appendChild(button);
     document.querySelector('.todos').appendChild(card);
+    document.querySelectorAll('.updatebtn').forEach(btn=>{
+      //console.log(btn.parentElement.textContent);
+      
+      btn.addEventListener("click",(e)=>{
+        e.stopImmediatePropagation();
+        const updatediv = document.querySelector('.update-div');
+        updatediv.setAttribute("style","display:flex");
+        //console.log(item.textContent);
+        // Retrieves the string and converts it to a JavaScript object 
+
+        const retrievedString = localStorage.getItem('todos');
+        const parsedObject = JSON.parse(retrievedString);
+        //console.log(parsedObject);
+        const txtInput = document.querySelector('.txtt-input');
+        //console.log(txtInput.value);
+        for(let i=0;i<parsedObject.length;i++){
+          if(item.textContent === parsedObject[i].item){
+            txtInput.value  = item.textContent;
+            document.querySelector('.save-btn').addEventListener("click",()=>{
+              parsedObject[i].item = txtInput.value;
+              item.textContent = txtInput.value;
+
+              const modifiedndstrigifiedForStorage = JSON.stringify(parsedObject);
+              localStorage.setItem('todos',modifiedndstrigifiedForStorage);
+              updatediv.setAttribute("style","display:none");
+            })
+            
+            
+            
+          }
+        }
+
+      })
+    })
+    
   });
   // Update itemsLeft
   itemsLeft.textContent = document.querySelectorAll(
